@@ -15,9 +15,8 @@
 	  <link rel="stylesheet" th:href="@{/bower_components/bootstrap-daterangepicker/daterangepicker.css}">	 
 	  <link rel="stylesheet" th:href="@{/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css}">
 	  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
-		
 	</head>
-	<body>
+	<body th:fragment="body" class="hold-transition skin-blue fixed sidebar-mini sidebar-collapse">
 		<header th:fragment="header" class="main-header">
 	    	<a th:href="@{/index}" class="logo">	     
 	      		<span class="logo-mini"><b>C</b>M</span>	      
@@ -26,8 +25,7 @@
 		    <nav class="navbar navbar-static-top">	    
 		      <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
 		        <span class="sr-only">Toggle navigation</span>
-		      </a>
-		
+		      </a>		
 		    <div class="navbar-custom-menu">
 		        <ul class="nav navbar-nav">	         
 		          <li class="dropdown messages-menu">
@@ -286,7 +284,7 @@
 	          </a>
 	          <ul class="treeview-menu">
 	          	<li id="menu_paciente"><a th:href="@{/paciente}"><i class="fa fa-circle-o"></i>Paciente</a></li>
-	            <li><a th:href="@{/personal}"><i class="fa fa-circle-o"></i>Personal</a></li>	            
+	            <li id="menu_personal"><a th:href="@{/personal}"><i class="fa fa-circle-o"></i>Personal</a></li>	            
 	          </ul>
 	        </li>
 	        <li class="treeview">
@@ -346,8 +344,7 @@
     </div>
     <strong>Copyright &copy; 2018. <a href="https://adminlte.io">Consultorio Médico 1.0</a>.</strong> Todos los derechos Reservados.
   	<script th:src="@{/bower_components/jquery/dist/jquery.min.js}"></script>
-<!-- jQuery UI 1.11.4 -->
-<script th:src="@{/bower_components/jquery-ui/jquery-ui.min.js}"></script>
+  	<script th:src="@{/bower_components/jquery-ui/jquery-ui.min.js}"></script>
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
 <script>
   $.widget.bridge('uibutton', $.ui.button);
@@ -380,10 +377,7 @@
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script th:src="@{/dist/js/pages/dashboard.js}"></script>
 <!-- AdminLTE for demo purposes -->
-<script th:src="@{/dist/js/demo.js}"></script>
-<script>
-
-</script>
-  </footer>     
+<script th:src="@{/dist/js/demo.js}"></script>    
+  </footer>
 </body>
 </html>
