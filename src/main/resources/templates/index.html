@@ -240,7 +240,7 @@
 										<td class="text-center">Gutierrez</td>
 										<td class="text-center">23/05/2018</td>
 									</tr>
-																		<tr>										
+									<tr>										
 										<td class="text-center">Arturo Eugenio</td>
 										<td class="text-center">Sandoval</td>
 										<td class="text-center">Gutierrez</td>
@@ -291,10 +291,12 @@
     </section>    
   </div> 
   <footer th:replace="layout/layout :: footer"></footer>  
-  <div class="control-sidebar-bg"></div>
-</div> 
-<script th:src="@{/dist/js/calendario.js}"></script>
+  <div class="control-sidebar-bg">
+  </div>
+</div>
+
 <script>
+
 $(document).ready(function(){
 	
     $('li').removeClass("active");

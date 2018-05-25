@@ -14,6 +14,10 @@
 	  <link rel="stylesheet" th:href="@{/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css}">	  
 	  <link rel="stylesheet" th:href="@{/bower_components/bootstrap-daterangepicker/daterangepicker.css}">	 
 	  <link rel="stylesheet" th:href="@{/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css}">
+	  
+	  <link rel="stylesheet" th:href="@{/bower_components/fullcalendar/dist/fullcalendar.min.css}">
+	  <link rel="stylesheet" th:href="@{/bower_components/fullcalendar/dist/fullcalendar.print.min.css}" media="print">
+	  
 	  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 	</head>
 	<body th:fragment="body" class="hold-transition skin-blue fixed sidebar-mini sidebar-collapse">
@@ -287,12 +291,12 @@
 	            <li id="menu_personal"><a th:href="@{/personal}"><i class="fa fa-circle-o"></i>Personal</a></li>	            
 	          </ul>
 	        </li>
-	        <li class="treeview">
-	          <a href="#">
+	        <li id="menu_programacion_medica">
+	          <a th:href="@{/programacion_medica}">
 	            <i class="fa fa-clock-o"></i> <span>Prog. Médica</span>	            
 	          </a>	         
 	        </li>
-	        <li class="treeview">
+	        <li>
 	          <a href="#">
 	            <i class="fa fa-calendar-plus-o"></i> <span>Cita Médica</span>	            
 	          </a>	         
@@ -342,9 +346,9 @@
     <div class="pull-right hidden-xs">
       <b>Version</b> 1.0.0
     </div>
-    <strong>Copyright &copy; 2018. <a href="https://adminlte.io">Consultorio Médico 1.0</a>.</strong> Todos los derechos Reservados.
-  	<script th:src="@{/bower_components/jquery/dist/jquery.min.js}"></script>
-  	<script th:src="@{/bower_components/jquery-ui/jquery-ui.min.js}"></script>
+    <strong>Copyright &copy; 2018. <a href="#">Consultorio Médico 1.0</a>.</strong> Todos los derechos Reservados.
+<script th:src="@{/bower_components/jquery/dist/jquery.min.js}"></script>
+<script th:src="@{/bower_components/jquery-ui/jquery-ui.min.js}"></script>
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
 <script>
   $.widget.bridge('uibutton', $.ui.button);
@@ -376,8 +380,13 @@
 <script th:src="@{/dist/js/adminlte.min.js}"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script th:src="@{/dist/js/pages/dashboard.js}"></script>
-<!-- AdminLTE for demo purposes -->
-<script th:src="@{/dist/js/demo.js}"></script>    
-  </footer>
+<!-- full Calendar -->
+<script th:src="@{/bower_components/moment/moment.js}"></script>
+<script th:src="@{/bower_components/fullcalendar/dist/fullcalendar.min.js}"></script>
+
+
+ <script th:src="@{/dist/js/calendario.js}"></script> 
+ 
+</footer> 
 </body>
 </html>

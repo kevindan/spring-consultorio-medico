@@ -25,5 +25,11 @@ public class IndexController {
 	public String personal() {
 		return "personal";
 	}
+	
+	@GetMapping("/programacion_medica")
+	public String programacion_medica() {
+		return "programacion_medica";
+	}
+
 
 }
