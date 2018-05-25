@@ -296,17 +296,17 @@
 	            <i class="fa fa-clock-o"></i> <span>Prog. Médica</span>	            
 	          </a>	         
 	        </li>
-	        <li>
-	          <a href="#">
+	        <li id="menu_cita_medica">
+	          <a th:href="@{/cita_medica}">
 	            <i class="fa fa-calendar-plus-o"></i> <span>Cita Médica</span>	            
 	          </a>	         
 	        </li>
-	        <li class="treeview">
-	          <a href="#">
-	            <i class="fa fa-calendar-check-o"></i> <span>Atender Consulta</span>	            
+	        <li id="menu_atender_cita_medica">
+	          <a th:href="@{/atender_cita_medica}">
+	            <i class="fa fa-calendar-check-o"></i> <span>Atender Cita Medica</span>	            
 	          </a>	         
 	        </li>		        
-	        <li class="treeview">
+	        <li class="treeview" id="menu_mantenedores">
 	          <a href="#">
 	            <i class="fa fa-server"></i>
 	            <span>Mantenedores</span>
@@ -315,17 +315,17 @@
 	            </span>
 	          </a>
 	          <ul class="treeview-menu">
-	            <li><a href="pages/charts/chartjs.html"><i class="fa fa-circle-o"></i>Imagenología</a></li>
-	             <li><a href="pages/charts/inline.html"><i class="fa fa-circle-o"></i>Consultorios</a></li>
-	            <li><a href="pages/charts/morris.html"><i class="fa fa-circle-o"></i>Medicamentos</a></li>
-	            <li><a href="pages/charts/flot.html"><i class="fa fa-circle-o"></i>Diagnósticos</a></li>
-	            <li><a href="pages/charts/inline.html"><i class="fa fa-circle-o"></i>Especialidades</a></li>
-	            <li><a href="pages/charts/inline.html"><i class="fa fa-circle-o"></i>Ex. de Laboratorio</a></li>
-	            <li><a href="pages/charts/inline.html"><i class="fa fa-circle-o"></i>Procedimientos</a></li>
-	            <li><a href="pages/charts/inline.html"><i class="fa fa-circle-o"></i>Establecimientos</a></li>
+	            <li id="menu_imagenologia"><a href="pages/charts/chartjs.html"><i class="fa fa-circle-o"></i>Imagenología</a></li>
+	            <li id="menu_consultorio"><a href="pages/charts/inline.html"><i class="fa fa-circle-o"></i>Consultorios</a></li>
+	            <li id="menu_medicamento"><a href="pages/charts/morris.html"><i class="fa fa-circle-o"></i>Medicamentos</a></li>
+	            <li id="menu_diagnostico"><a href="pages/charts/flot.html"><i class="fa fa-circle-o"></i>Diagnósticos</a></li>
+	            <li id="menu_especialidad"><a href="pages/charts/inline.html"><i class="fa fa-circle-o"></i>Especialidades</a></li>
+	            <li id="menu_examen_laboratorio"><a href="pages/charts/inline.html"><i class="fa fa-circle-o"></i>Ex. de Laboratorio</a></li>
+	            <li id="menu_procedimiento"><a href="pages/charts/inline.html"><i class="fa fa-circle-o"></i>Procedimientos</a></li>
+	            <li id="menu_establecimiento"><a href="pages/charts/inline.html"><i class="fa fa-circle-o"></i>Establecimientos</a></li>
 	          </ul>
 	        </li>
-	        <li class="treeview">
+	        <li class="treeview" id="menu_seguridad">
 	          <a href="#">
 	            <i class="fa fa-lock"></i>
 	            <span>Seguridad</span>
@@ -334,7 +334,7 @@
 	            </span>
 	          </a>
 	          <ul class="treeview-menu">
-	            <li><a href="pages/UI/general.html"><i class="fa fa-circle-o"></i> Usuarios</a></li>	            
+	            <li id="menu_usuario"><a href="pages/UI/general.html"><i class="fa fa-circle-o"></i> Usuarios</a></li>	            
 	          </ul>
 	        </li>	        
 	        <li class="header">Otras opciones</li>

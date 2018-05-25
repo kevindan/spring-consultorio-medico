@@ -31,5 +31,9 @@ public class IndexController {
 		return "programacion_medica";
 	}
 
+	@GetMapping("/cita_medica")
+	public String cita_medica() {
+		return "cita_medica";
+	}
 
 }
