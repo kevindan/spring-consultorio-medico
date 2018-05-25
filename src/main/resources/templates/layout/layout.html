@@ -315,14 +315,14 @@
 	            </span>
 	          </a>
 	          <ul class="treeview-menu">
-	            <li id="menu_imagenologia"><a href="pages/charts/chartjs.html"><i class="fa fa-circle-o"></i>Imagenología</a></li>
-	            <li id="menu_consultorio"><a href="pages/charts/inline.html"><i class="fa fa-circle-o"></i>Consultorios</a></li>
-	            <li id="menu_medicamento"><a href="pages/charts/morris.html"><i class="fa fa-circle-o"></i>Medicamentos</a></li>
-	            <li id="menu_diagnostico"><a href="pages/charts/flot.html"><i class="fa fa-circle-o"></i>Diagnósticos</a></li>
-	            <li id="menu_especialidad"><a href="pages/charts/inline.html"><i class="fa fa-circle-o"></i>Especialidades</a></li>
-	            <li id="menu_examen_laboratorio"><a href="pages/charts/inline.html"><i class="fa fa-circle-o"></i>Ex. de Laboratorio</a></li>
-	            <li id="menu_procedimiento"><a href="pages/charts/inline.html"><i class="fa fa-circle-o"></i>Procedimientos</a></li>
-	            <li id="menu_establecimiento"><a href="pages/charts/inline.html"><i class="fa fa-circle-o"></i>Establecimientos</a></li>
+	            <li id="menu_imagenologia"><a th:href="@{/imagenologia}"><i class="fa fa-circle-o"></i>Imagenología</a></li>
+	            <li id="menu_consultorio"><a th:href="@{/consultorio}"><i class="fa fa-circle-o"></i>Consultorios</a></li>
+	            <li id="menu_medicamento"><a th:href="@{/medicamento}"><i class="fa fa-circle-o"></i>Medicamentos</a></li>
+	            <li id="menu_diagnostico"><a th:href="@{/diagnostico}"><i class="fa fa-circle-o"></i>Diagnósticos</a></li>
+	            <li id="menu_especialidad"><a th:href="@{/especialidad}"><i class="fa fa-circle-o"></i>Especialidades</a></li>
+	            <li id="menu_examen_laboratorio"><a th:href="@{/examen_laboratorio}"><i class="fa fa-circle-o"></i>Ex. de Laboratorio</a></li>
+	            <li id="menu_procedimiento"><a th:href="@{/procedimiento}"><i class="fa fa-circle-o"></i>Procedimientos</a></li>
+	            <li id="menu_establecimiento"><a th:href="@{/establecimiento}"><i class="fa fa-circle-o"></i>Establecimientos</a></li>
 	          </ul>
 	        </li>
 	        <li class="treeview" id="menu_seguridad">
@@ -334,7 +334,7 @@
 	            </span>
 	          </a>
 	          <ul class="treeview-menu">
-	            <li id="menu_usuario"><a href="pages/UI/general.html"><i class="fa fa-circle-o"></i> Usuarios</a></li>	            
+	            <li id="menu_usuario"><a th:href="@{/usuario}"><i class="fa fa-circle-o"></i> Usuarios</a></li>	            
 	          </ul>
 	        </li>	        
 	        <li class="header">Otras opciones</li>
