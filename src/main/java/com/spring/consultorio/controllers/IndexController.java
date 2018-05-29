@@ -11,21 +11,6 @@ public class IndexController {
 		return "index";
 	}
 	
-	@GetMapping("/login")
-	public String login() {
-		return "login";
-	}
-	
-	@GetMapping("/paciente")
-	public String paciente() {
-		return "paciente";
-	}
-
-	@GetMapping("/personal")
-	public String personal() {
-		return "personal";
-	}
-	
 	@GetMapping("/programacion_medica")
 	public String programacion_medica() {
 		return "programacion_medica";
@@ -45,44 +30,12 @@ public class IndexController {
 	public String imagenologia() {
 		return "imagenologia";
 	}
-	
-	@GetMapping("/consultorio")
-	public String consultorio() {
-		return "consultorio";
-	}
-	
-	@GetMapping("/medicamento")
-	public String medicamento() {
-		return "medicamento";
-	}
-	
+
 	@GetMapping("/diagnostico")
 	public String diagnostico() {
 		return "diagnostico";
 	}
+
+
 	
-	@GetMapping("/especialidad")
-	public String especialidad() {
-		return "especialidad";
-	}
-	
-	@GetMapping("/examen_laboratorio")
-	public String examen_laboratorio() {
-		return "examen_laboratorio";
-	}
-	
-	@GetMapping("/procedimiento")
-	public String procedimiento() {
-		return "procedimiento";
-	}
-	
-	@GetMapping("/establecimiento")
-	public String establecimiento() {
-		return "establecimiento";
-	}
-	
-	@GetMapping("/usuario")
-	public String usuario() {
-		return "usuario";
-	}
 }
