@@ -35,7 +35,5 @@ public class IndexController {
 	public String diagnostico() {
 		return "diagnostico";
 	}
-
-
 	
 }
