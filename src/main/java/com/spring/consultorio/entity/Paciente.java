@@ -25,7 +25,7 @@ public class Paciente implements Serializable {
 	@Id
 	@Column(name = "id_paciente")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	private Long idPaciente;
 
 	@Column(name = "dni")
 	@NotEmpty
@@ -106,13 +106,13 @@ public class Paciente implements Serializable {
 
 	@Column(name = "eliminado")
 	private int eliminado;
-
-	public Long getId() {
-		return id;
+	
+	public Long getIdPaciente() {
+		return idPaciente;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
+	public void setIdPaciente(Long idPaciente) {
+		this.idPaciente = idPaciente;
 	}
 
 	public String getDni() {

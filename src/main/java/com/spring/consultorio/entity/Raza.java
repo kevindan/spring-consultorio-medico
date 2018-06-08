@@ -8,27 +8,34 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
 
 @Entity
-@Table(name="razas")
+@Table(name = "razas")
 public class Raza implements Serializable {
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Long id_raza;
-	
-	@Column(name="descripcion")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="id_raza")
+	private Long idRaza;
+
+	@Column(name = "descripcion")
+	@NotEmpty
 	private String descripcion;
-	
-	@Column(name="eliminado")
+
+	@Column(name = "eliminado")
 	private int eliminado;
 
-	public Long getId_raza() {
-		return id_raza;
+	public Long getIdRaza() {
+		return idRaza;
 	}
 
-	public void setId_raza(Long id_raza) {
-		this.id_raza = id_raza;
+	public void setIdRaza(Long idRaza) {
+		this.idRaza = idRaza;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
 	}
 
 	public String getDescripcion() {
