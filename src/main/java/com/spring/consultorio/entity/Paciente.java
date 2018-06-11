@@ -1,14 +1,19 @@
 package com.spring.consultorio.entity;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.PrePersist;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -100,13 +105,28 @@ public class Paciente implements Serializable {
 	private Date fechaRegistro;
 
 	// Relacionar
+	//Un paciente -> Muchas ventas
+	@OneToMany(mappedBy="paciente",fetch=FetchType.LAZY, cascade = CascadeType.ALL)
 	private List<Venta> ventas;
 	// Relacionar
 	private List<CitaMedica> citasMedicas;
 
 	@Column(name = "eliminado")
 	private int eliminado;
+
+	public Paciente() {
+		// Inicializamos el array de ventas
+		ventas = new ArrayList<Venta>();
+
+	}
 	
+	@PrePersist
+	//Asigna la fecha al atributo fechaRegistro antes de grabarse en la base de datos
+	public void prePersist(){
+		
+		fechaRegistro = new Date();
+	}
+
 	public Long getIdPaciente() {
 		return idPaciente;
 	}
@@ -275,6 +295,11 @@ public class Paciente implements Serializable {
 		this.ventas = ventas;
 	}
 
+	public void addVenta(Venta venta) {
+
+		ventas.add(venta);
+	}
+
 	public List<CitaMedica> getCitasMedicas() {
 		return citasMedicas;
 	}
@@ -290,7 +315,7 @@ public class Paciente implements Serializable {
 	public void setEliminado(int eliminado) {
 		this.eliminado = eliminado;
 	}
-
+	
 	private static final long serialVersionUID = 1L;
 
 }
