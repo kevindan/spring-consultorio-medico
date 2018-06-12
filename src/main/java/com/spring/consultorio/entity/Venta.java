@@ -31,6 +31,7 @@ public class Venta implements Serializable {
 	// relacionar
 	// Muchas ventas --> Un clieente
 	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "id_paciente")
 	private Paciente paciente;
 
 	@Column(name = "numero_operacion")
@@ -48,16 +49,16 @@ public class Venta implements Serializable {
 	private double montoTotal;
 	// relacionar
 	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	@JoinColumn(name="id_venta")
+	@JoinColumn(name = "id_venta")
 	private List<VentaDetalle> ventasDetalle;
 
 	@Column(name = "eliminado")
 	private int eliminado;
-	
-	public Venta(){
+
+	public Venta() {
 		this.ventasDetalle = new ArrayList<VentaDetalle>();
 	}
-	
+
 	public Long getIdVenta() {
 		return idVenta;
 	}
@@ -113,9 +114,26 @@ public class Venta implements Serializable {
 	public void setVentasDetalle(List<VentaDetalle> ventasDetalle) {
 		this.ventasDetalle = ventasDetalle;
 	}
-	
-	public void addVentaDetalle(VentaDetalle ventaDetalle){
+
+	public void addVentaDetalle(VentaDetalle ventaDetalle) {
 		this.ventasDetalle.add(ventaDetalle);
+	}
+
+	public Double CalculaIgv() {
+
+		Double igv = 0.18;
+
+		return CalculaMontoSinIgv() * igv;
+	}
+
+	public Double CalculaMontoSinIgv() {
+
+		Double total = 0.0;
+		int size = ventasDetalle.size();
+		for (int i = 0; i < size; i++) {
+			total += ventasDetalle.get(i).calculaSubtotal();
+		}
+		return total;
 	}
 
 	public int getEliminado() {

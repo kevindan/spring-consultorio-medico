@@ -12,7 +12,9 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.PrePersist;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -74,9 +76,9 @@ public class Paciente implements Serializable {
 	@Column(name = "contrasena")
 	@NotEmpty
 	private String contrasena;
-
-	@Column(name = "raza")
-	// relacionar
+	
+	@OneToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "id_raza")
 	private Raza raza;
 
 	@Column(name = "grupo_sanguineo")
@@ -87,13 +89,13 @@ public class Paciente implements Serializable {
 
 	@Column(name = "ocupacion")
 	private String ocupacion;
-
-	@Column(name = "lugar_nacimiento")
-	// relacionar
+	
+	@OneToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "lugar_nacimiento")
 	private Ubigeo lugarNacimiento;
 
-	@Column(name = "lugar_procedencia")
-	// relacionar
+	@OneToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "lugar_procedencia")
 	private Ubigeo lugarProcedencia;
 
 	@Column(name = "persona_ayuda")
@@ -103,12 +105,12 @@ public class Paciente implements Serializable {
 	@NotNull
 	@Temporal(TemporalType.DATE)
 	private Date fechaRegistro;
-
 	// Relacionar
-	//Un paciente -> Muchas ventas
-	@OneToMany(mappedBy="paciente",fetch=FetchType.LAZY, cascade = CascadeType.ALL)
+	// Un paciente -> Muchas ventas
+	@OneToMany(mappedBy = "paciente", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private List<Venta> ventas;
 	// Relacionar
+	@OneToMany(mappedBy = "paciente", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private List<CitaMedica> citasMedicas;
 
 	@Column(name = "eliminado")
@@ -117,13 +119,15 @@ public class Paciente implements Serializable {
 	public Paciente() {
 		// Inicializamos el array de ventas
 		ventas = new ArrayList<Venta>();
+		citasMedicas = new ArrayList<CitaMedica>();
 
 	}
-	
+
 	@PrePersist
-	//Asigna la fecha al atributo fechaRegistro antes de grabarse en la base de datos
-	public void prePersist(){
-		
+	// Asigna la fecha al atributo fechaRegistro antes de grabarse en la base de
+	// datos
+	public void prePersist() {
+
 		fechaRegistro = new Date();
 	}
 
@@ -308,6 +312,10 @@ public class Paciente implements Serializable {
 		this.citasMedicas = citasMedicas;
 	}
 
+	public void addCitaMedica(CitaMedica citaMedica) {
+		citasMedicas.add(citaMedica);
+	}
+
 	public int getEliminado() {
 		return eliminado;
 	}
@@ -315,7 +323,7 @@ public class Paciente implements Serializable {
 	public void setEliminado(int eliminado) {
 		this.eliminado = eliminado;
 	}
-	
+
 	private static final long serialVersionUID = 1L;
 
 }
