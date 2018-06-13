@@ -49,7 +49,7 @@ public class Venta implements Serializable {
 	private double montoTotal;
 	// relacionar
 	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	@JoinColumn(name = "id_venta")
+	@JoinColumn(name="id_venta")
 	private List<VentaDetalle> ventasDetalle;
 
 	@Column(name = "eliminado")

@@ -3,11 +3,15 @@ package com.spring.consultorio.entity;
 import java.io.Serializable;
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -24,10 +28,18 @@ public class ProgramacionMedica implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id_programacion_medica")
 	private Long idProgramacionMedica;
+	
+	@OneToOne(mappedBy="programacionMedica",fetch=FetchType.LAZY, cascade=CascadeType.ALL)	
+	private CitaMedica citaMedica;
 	// Relacionar
+	@OneToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="id_usuario")
 	private Usuario usuario;
 	// Relacionar
+	@OneToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="id_consultorio")
 	private Consultorio consultorio;
+	
 	@Temporal(TemporalType.DATE)
 	@NotNull
 	@DateTimeFormat(pattern = "dd/MM/yyyy")
